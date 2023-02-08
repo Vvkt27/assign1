@@ -1,0 +1,66 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Audio {
+    private String artistName;
+    private String trackTitle;
+    private String albumTitle;
+    private int trackNumber;
+    private int year;
+    private int numReviews;
+    private int numCopiesSold;
+
+    private static Map<String, Audio> audioMap = new HashMap<>();
+
+    public Audio(String artistName, String trackTitle, String albumTitle, int trackNumber, int year, int numReviews, int numCopiesSold) {
+        this.artistName = artistName;
+        this.trackTitle = trackTitle;
+        this.albumTitle = albumTitle;
+        this.trackNumber = trackNumber;
+        this.year = year;
+        this.numReviews = numReviews;
+        this.numCopiesSold = numCopiesSold;
+    }
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public String getTrackTitle() {
+        return trackTitle;
+    }
+
+    public String getAlbumTitle() {
+        return albumTitle;
+    }
+
+    public int getTrackNumber() {
+        return trackNumber;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getNumReviews() {
+        return numReviews;
+    }
+
+    public int getNumCopiesSold() {
+        return numCopiesSold;
+    }
+
+    public static Map<String, Audio> getAudioMap() {
+        return audioMap;
+    }
+
+    public static Object get(String propertyName) {
+        // This method returns the value of the property with the given name.
+        return audioMap.get(propertyName);
+    }
+
+    public static void post(Audio audio) {
+        // This method stores an audio item in the audioMap.
+        audioMap.put(audio.getTrackTitle(), audio);
+    }
+}
